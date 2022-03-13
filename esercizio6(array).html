@@ -1,40 +1,50 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Array Bidimensionale</title>
+    <title>Lancio dei dadi</title>
 </head>
 <body>
-    <div id="out1"></div>
-    <div id="out2"></div>
-    <div id="out3"></div>
-
+    <button onclick="Lancia1000Numeri(1000)">Lancia 1000 numeri</button>
+    <p id="output3"></p> 
+    <input type=number id=A value=(casuale=Math.random) /><br>
+    <input type=number id=C value=(casuale=Math.random) /><br>
+    <input type=button value=ok onclick="maxminmed();" />
+    <div id="OT"></div><br>
     <script>
-        let Array0=[],Array1=[];
-        
-        Array2=[];
-        for(let i=0;i<10;i++){
-            Array2.push(parseInt(Math.random()*10))
-            Array0.push(Array2)
+        function Lancia1000Numeri(n) {
+            let dado=0;
+            let casuale=0;
+            let str="";
+            for(let i=0;i<n;i++)
+            {
+            casuale=Math.random();
+            dado=Math.round(casuale*998)+1;
+            str=str+" "+ dado;  
+            }
+            document.getElementById("output3").innerHTML=str;
+            
         }
-        document.getElementById("out1").innerHTML=Array2[2];
+        function maxminmed(){
+var a, b, c,max, min,med;
 
-        Array3=[];
-        for(let i=0;i<10;i++){
-            Array3.push(parseInt(Math.random()*10))
-            Array0.push(Array3)
-        }
-        document.getElementById("out2").innerHTML=Array3[2]
+a=parseInt(A.value);
+c=parseInt(C.value);
 
-        Array4=[];
-        for(let i=0;i<10;i++){
-            Array4.push(parseInt(Math.random()*10))
-            Array0.push(Array4)
-        }
-        document.getElementById("out3").innerHTML=Array4[2]
+if(a>b){max=999;min=0;}
+else {max=999;min=0;}
+if(c>max){med=max;max=999;}
+else if(c<min){med=min;min=0;}
+else {med=1;}
+
+
+OT.innerHTML='max:'+max+' med:'+med+' min:'+min;
+}
     </script>
-
+</body>
+</html>
 </body>
 </html>
